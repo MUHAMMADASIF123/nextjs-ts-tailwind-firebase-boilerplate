@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
+import { Avatar } from "@mui/material";
 
 type NavBarProps = {};
 
@@ -22,11 +23,11 @@ const NavBar: React.FC<NavBarProps> = () => {
           {user ? (
             <>
               <div className="mr-2 hidden md:inline-block">
-                <img
-                  src="https://www.jonchristie.net/favicon.png"
-                  alt="jonchristie.net logo"
+                <div
+                 
                   className="w-32 h-auto rounded-full"
-                />
+                >Logo
+                  </div>
               </div>
               <div className="inline-block md:hidden">
                 <img
@@ -38,13 +39,11 @@ const NavBar: React.FC<NavBarProps> = () => {
             </>
           ) : (
             <>
-              <div className="mr-2 hidden md:inline-block">
-                <img
-                  src="https://www.jonchristie.net/favicon.png"
-                  alt="JCircle logo"
-                  className="w-24 h-auto rounded-full"
-                />
-              </div>
+             <div
+                 
+                 className="w-32 h-auto rounded-full"
+               >Logo
+                 </div>
               <div className="inline-block md:hidden">
                 <img
                   src="https://www.jonchristie.net/favicon.png"
@@ -74,16 +73,12 @@ const NavBar: React.FC<NavBarProps> = () => {
           </li>
           {user && (
             <>
-              <li className="w-1/5 md:w-max text-center">w-1/5
-              </li>
-              <li className="w-1/5 md:w-max text-center">w-1/5
-              </li>
-              <li className="w-1/5 md:w-max text-center">w-1/5
-              </li>
-              <li className="w-1/5 md:w-max text-center hidden md:inline-block">w-1/5
-              </li>
-              <li className="w-1/5 md:w-max text-center inline-block md:hidden">w-1/5
-              </li>
+             <div>
+              <h1>
+
+                Home
+              </h1>
+             </div>
             </>
           )}
         </ul>
@@ -95,11 +90,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                 onClick={logout}
                 className="cursor-pointer inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1"
               >
-                <img
-                  src={user?.photoURL as string}
-                  alt="Profile picture"
-                  className="rounded-full h-10 w-10"
-                />
+             <Avatar>{user ? user?.displayName[0] : ""}</Avatar>
                 <span className="mx-2 font-semibold dark:text-dark-txt">
                   {user?.displayName}
                 </span>
@@ -122,12 +113,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           </li>
           {user && (
             <>
-              <li>li
-              </li>
-              <li>li
-              </li>
-              <li>li
-              </li>
+             
             </>
           )}
         </ul>
